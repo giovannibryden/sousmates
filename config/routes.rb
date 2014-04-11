@@ -7,5 +7,6 @@ SousMates::Application.routes.draw do
   get '/about' => 'static#about'
   get '/contact' => 'static#contact'
   get '/login' => 'sessions#new'
+  get '/logout' => 'sessions#destroy'
 
 end

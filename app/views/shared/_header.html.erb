@@ -3,5 +3,11 @@
 	<li><%= link_to "Home", :action => "index", :controller => "static" %></li>
 	<li><%= link_to "About us", :action => "about", :controller => "static" %></li>
 	<li><%= link_to "Contact", :action => "contact", :controller => "static" %></li>
-	<li><%= link_to "Sign in", :action => "new", :controller => "sessions" %></li>
+	
+	<% if signed_in? %>
+		<li><a href="/logout" title="">Log out</a></li>
+	<% else %>
+		<li><%= link_to "Log in", :action => "new", :controller => "sessions" %></li>
+	<% end %>
+
 </ul>
