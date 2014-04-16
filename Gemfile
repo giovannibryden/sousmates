@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'paperclip'
+gem 'ckeditor'
+
 # Bcrypt to handle stuff
 gem 'bcrypt-ruby', '3.1.2'
 
