@@ -20,6 +20,8 @@ Ckeditor.setup do |config|
   # By default: there is no authorization.
   # config.authorize_with :cancan
 
+  config.allowedContent = true;
+  
   # Asset model classes
   # config.picture_model { Ckeditor::Picture }
   # config.attachment_file_model { Ckeditor::AttachmentFile }
