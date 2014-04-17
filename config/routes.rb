@@ -1,5 +1,4 @@
-SousMates::Application.routes.draw do
-  
+SousMates::Application.routes.draw do 
   mount Ckeditor::Engine => '/ckeditor'
   resources :users
   resources :sessions, only: [:new, :create, :destroy]

@@ -14,11 +14,19 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    if signed_in?
+      @post = Post.new
+    else
+      redirect_to root_url
+    end
   end
 
   # GET /posts/1/edit
   def edit
+    if signed_in?
+    else
+      redirect_to root_url
+    end
   end
 
   # POST /posts
@@ -54,10 +62,14 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    @post.destroy
-    respond_to do |format|
-      format.html { redirect_to posts_url }
-      format.json { head :no_content }
+    if signed_in?
+      @post.destroy
+      respond_to do |format|
+        format.html { redirect_to posts_url }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to root_url
     end
   end
 
