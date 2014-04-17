@@ -4,21 +4,38 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    if signed_in?
+      @users = User.all
+    else
+      redirect_to root_url
+    end
+    
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    if signed_in?
+    else
+      redirect_to root_url
+    end
   end
 
   # GET /users/new
   def new
-    @user = User.new
+    if signed_in?
+      @user = User.new
+    else
+      redirect_to root_url
+    end
   end
 
   # GET /users/1/edit
   def edit
+    if signed_in?
+    else
+      redirect_to root_url
+    end
   end
 
   # POST /users
