@@ -5,9 +5,9 @@
 	<li><%= link_to "Contact", :action => "contact", :controller => "static" %></li>
 	
 	<% if signed_in? %>
-		<li><a href="/logout" title="">Log out</a></li>
+		<li><%= link_to "Log out", logout_url %></li>
 	<% else %>
-		<li><%= link_to "Log in", :action => "new", :controller => "sessions" %></li>
+		<li><%= link_to "Log in", login_url %></li>
 	<% end %>
 
 </ul>
