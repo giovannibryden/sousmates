@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1
-  # GET /users/1.json
+  # GET /users/1.jsond
   def show
     if signed_in?
     else

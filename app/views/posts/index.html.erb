@@ -1,30 +1,20 @@
 <h1>Listing posts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Text</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div>
+  <div>
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%== post.text %></td>
+      <div>
+      <% title = post.title %>
+        <span><%= link_to title, post %></span>
+        <span><%== post.text %></span>
       <% if signed_in? %>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <span><%= link_to 'Edit', edit_post_path(post) %></span>
+        <span><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></span>
       <% end %>
-      </tr>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
 
 <br>
 <% if signed_in? %>
