@@ -1,41 +1,25 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :confirm_logged_in, :except => [:new]
 
   # GET /users
   # GET /users.json
   def index
-    if signed_in?
-      @users = User.all
-    else
-      redirect_to root_url
-    end
-    
+    @users = User.all
   end
 
   # GET /users/1
   # GET /users/1.jsond
   def show
-    if signed_in?
-    else
-      redirect_to root_url
-    end
   end
 
   # GET /users/new
   def new
-    if signed_in?
-      @user = User.new
-    else
-      redirect_to root_url
-    end
+    @user = User.new
   end
 
   # GET /users/1/edit
   def edit
-    if signed_in?
-    else
-      redirect_to root_url
-    end
   end
 
   # POST /users
