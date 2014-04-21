@@ -1,19 +1,22 @@
 <h1>Listing posts</h1>
 
-<div>
-  <div>
+  <div class="post">
     <% @posts.each do |post| %>
-      <div>
-      <% title = post.title %>
-        <span><%= link_to title, post %></span>
+      <div class="post_info">
+        <% title = post.title %>
+        <p><%= link_to title, post %></p>
+        <% t = post.created_at %>
+        <p><%= t.strftime("Posted on %m/%d/%Y at %I:%M%p") %></p>
+      </div>
+      <div class="post content">
         <span><%== post.text %></span>
-      <% if signed_in? %>
-        <span><%= link_to 'Edit', edit_post_path(post) %></span>
-        <span><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></span>
-      <% end %>
+        <% if signed_in? %>
+          <p><%= link_to 'Edit', edit_post_path(post) %></p>
+          <p><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        <% end %>
+      </div>
       </div>
     <% end %>
   </div>
-</div>
 
 <div><%= link_to 'See all posts', posts_path %></div>
