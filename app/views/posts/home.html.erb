@@ -1,0 +1,19 @@
+<h1>Listing posts</h1>
+
+<div>
+  <div>
+    <% @posts.each do |post| %>
+      <div>
+      <% title = post.title %>
+        <span><%= link_to title, post %></span>
+        <span><%== post.text %></span>
+      <% if signed_in? %>
+        <span><%= link_to 'Edit', edit_post_path(post) %></span>
+        <span><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div><%= link_to 'See all posts', posts_path %></div>
