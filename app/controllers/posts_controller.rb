@@ -1,12 +1,16 @@
 class PostsController < ApplicationController
   
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :confirm_logged_in, :except => [:show, :index]
+  before_action :confirm_logged_in, :only => [:new, :edit, :destroy]
 
   # GET /posts
   # GET /posts.json
-  def index
+  def home
     @posts = Post.limit(5)
+  end
+
+  def index
+    @posts = Post.all
   end
 
   # GET /posts/1

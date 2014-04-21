@@ -1,8 +1,6 @@
 class SessionsController < ApplicationController
-	before_action :confirm_logged_in, :except => [:new]
 
-	def new
-		
+	def new	
 	end
 
 	def create

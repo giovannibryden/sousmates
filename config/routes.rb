@@ -5,10 +5,11 @@ SousMates::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :posts 
 
-  root 'posts#index'
+  root 'posts#home'
   get '/about' => 'static#about'
   get '/contact' => 'static#contact'
   get '/login' => 'sessions#new'
   get '/logout' => 'sessions#destroy'
+  get '/posts' => 'posts#index'
 
 end
