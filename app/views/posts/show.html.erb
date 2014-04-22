@@ -17,6 +17,16 @@
   <%== @post.text %>
 </p>
 
+<p>
+  <%= form_for(@comment) do |f| %>
+  <%= f.hidden_field :post_id %>
+  <strong><%= f.label :body %></strong>
+  <%= f.text_area :body %>
+  <p><%= f.submit "Post comment" %></p>
+  <% end %>
+</p>
+
+
 
 <% if signed_in? %> 
 	<%= link_to 'Edit', edit_post_path(@post) %> |

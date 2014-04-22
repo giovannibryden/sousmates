@@ -3,7 +3,9 @@ SousMates::Application.routes.draw do
   
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :posts 
+  resources :posts
+  resources :comments
+  
 
   root 'posts#home'
   get '/about' => 'static#about'
