@@ -32,7 +32,11 @@
   <%= form_for(@comment) do |f| %>
   <%= f.hidden_field :post_id %>
   <h4><%= f.label "Post a comment" %></h4>
-  <%= f.text_area :body %>
+  <p><%= f.label :name %>*</p>
+  <p><%= f.text_field :name %></p>
+  <p><%= f.label :email %>*</p>
+  <p><%= f.text_field :email %></p>
+  <p><%= f.text_area :body %></p>
   <p><%= f.submit "Post comment" %></p>
   <% end %>
 </p>

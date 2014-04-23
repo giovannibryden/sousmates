@@ -1,5 +1,17 @@
 <div class="comment">
-	<% t = comment.created_at %>
-	<p><%== t.strftime("Commented on %m/%d/%Y at %I:%M%p") %></p>
-	<p><%== comment.body %></p>
+	<div class="info">
+		<%= comment.name%>
+		<% t = comment.created_at %>
+		<%== t.strftime("commented on %m/%d/%Y at %I:%M%p") %>
+	</div>
+
+	<div class="body"><%== comment.body %></div>
+	
+	<% if signed_in? %>
+	<div class="info">
+		<%= link_to 'Destroy Comment', comment,
+    :confirm => 'Are you sure?',
+    :method => :delete %>
+  <% end %>
+  </div>
 </div>
