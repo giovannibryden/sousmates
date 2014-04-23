@@ -17,18 +17,22 @@
   <%== @post.text %>
 </p>
 
+<% if signed_in? %> 
+  <%= link_to 'Edit', edit_post_path(@post) %>
+<% end %>
+
+<!-- View comments -->
+<div class="comment_wrapper">
+  <%= render :partial => 'comment', :collection => @post.comments %>  
+</div>
+
+<!-- Submit comments -->
+
 <p>
   <%= form_for(@comment) do |f| %>
   <%= f.hidden_field :post_id %>
-  <strong><%= f.label :body %></strong>
+  <h4><%= f.label "Post a comment" %></h4>
   <%= f.text_area :body %>
   <p><%= f.submit "Post comment" %></p>
   <% end %>
 </p>
-
-
-
-<% if signed_in? %> 
-	<%= link_to 'Edit', edit_post_path(@post) %> |
-	<%= link_to 'Back', posts_path %>
-<% end %>

@@ -1,0 +1,5 @@
+<div class="comment">
+	<% t = comment.created_at %>
+	<p><%== t.strftime("Commented on %m/%d/%Y at %I:%M%p") %></p>
+	<p><%== comment.body %></p>
+</div>
