@@ -7,9 +7,9 @@
 
 <p>
   <strong>Created</strong>
-  <%= @post.created_at %> |
+  <%= @post.created_at.localtime.strftime("Posted on %m/%d/%Y at %I:%M%p") %> |
   <strong>Updated</strong>
-  <%= @post.updated_at %>
+  <%= @post.updated_at.localtime.strftime("Posted on %m/%d/%Y at %I:%M%p") %>
 </p>
 
 <p>
