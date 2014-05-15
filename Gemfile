@@ -10,9 +10,8 @@ gem 'tinymce-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
-
- gem 'pg'
-
+# Postgres for the DB cause I got it like that
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
