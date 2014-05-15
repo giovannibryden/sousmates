@@ -32,6 +32,7 @@ class UsersController < ApplicationController
           flash[:success] = "Welcome to the Sample App!"
           redirect_to @user
         else
+          flash[:notice] = "Incorrect email or password."
           render 'new'
     end
   end
